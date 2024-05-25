@@ -1,8 +1,8 @@
 name: "ReadComponents"
 description: "Read de los componenetes del json para su verificacion"
 runs:
-  using: "python"
-  main: "index.py"
+  using: "composite"
+  main: "readjson.py"
 inputs:
   path_json:
     description: "Path del fichero JSON"
