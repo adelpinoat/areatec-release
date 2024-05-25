@@ -56,6 +56,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: "${{ github.head_ref }}"
+      - name: Valitacion
         uses: ./.github/validation/
 # mergeamos la pull request a la rama Release  para dejarla preparada para propagar la
   automerge:
