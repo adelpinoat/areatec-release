@@ -1,16 +1,16 @@
 name: "ReadComponents"
 description: "Read de los componenetes del json para su verificacion"
-runs:
-  using: "composite"
 inputs:
   path_json:
     description: "Path del fichero JSON"
     required: true
-steps:
-  - name: 'run python'
-    run: |
-      python readjson.py "../componenetes/componetes_release.json"
-    shell: bash
+runs:
+  using: "composite"
+  steps:
+    - name: 'run python'
+      run: |
+        python readjson.py "../componenetes/componetes_release.json"
+      shell: bash
 outputs:
   json_content:
     description: 'Contenido del fichero JSON'
