@@ -1,0 +1,12 @@
+{
+    "order": [
+      {
+        "posicion": "1",
+        "componente": "springbootfront:19.03.12"
+      },
+      {
+        "posicion": "2",
+        "componente": "componenenet-back:19.03.5"
+      }
+    ]
+  }
