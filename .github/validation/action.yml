@@ -1,0 +1,17 @@
+name: validation 
+description: validation de los comonentes de la release
+runs:
+ using: "composite"
+ steps:
+  - name: 'Check pom.xml exits'
+    run: |
+      if [ ! -f "${GITHUB_WORKSPACE}/componenetes/componetes_release.json" ]; then
+      echo "El fichero componenetes/componetes_release.json  no existe por lo que la release no se puede ejecutar"
+      fi
+    shell: bash
+  - name: 'Check test classes'
+    run: |
+      if [ ! -f "${GITHUB_WORKSPACE}/componentes/order.json" ]; then
+      echo "el ficher componentes/order.json no esta creado"
+      fi
+    shell: bash

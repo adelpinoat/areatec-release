@@ -1,0 +1,12 @@
+name: "ReadComponents"
+description: "Read de los componenetes del json para su verificacion"
+runs:
+  using: "python"
+  main: "index.py"
+inputs:
+  path_json:
+    description: "Path del fichero JSON"
+    required: true
+outputs:
+  json_content:
+    description: 'Contenido del fichero JSON'

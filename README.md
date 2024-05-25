@@ -1,2 +1,2 @@
 # areatec-release
-test for create release
+Repositorio de release de la aplicacion ARE del producto ATEC

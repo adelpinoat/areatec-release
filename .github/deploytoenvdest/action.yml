@@ -1,0 +1,30 @@
+name: validation 
+description: validation de los comonentes de la release
+inputs:
+  envdestino:
+    description: "Destino para ahacer el deploy"
+    required: true
+  json_componenetes:
+    description: "JSON  read-json-componenetes.outputs.json_content"
+    required: true
+  json_order:
+    description: "JSON  read-json-order.outputs.json_content"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: 'leyendo componenetes'
+      env:
+        JSON_COMPO: ${{ toJson(json_componentes) }}
+      run: echo "$JSON_COMPO"
+      shell: bash
+    - name: 'leyendo order'
+      env:
+        JSON_ORDER: ${{ toJson(json_order) }}
+      run: echo "$JSON_ORDER"
+      shell: bash
+    - name: 'leyendo entorno de destino'
+      run: |
+        echo "Este sera el entorno de destino ${{ envdestino }}"
+      shell: bash
