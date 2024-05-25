@@ -25,6 +25,7 @@ on:
   pull_request:
     branches:
       - 'release'
+      - 'main'
 env:
   ENV_DEST: ${{ github.base_ref }}
 
