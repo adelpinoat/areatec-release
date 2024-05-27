@@ -11,8 +11,8 @@ runs:
       run: |
         cd "${GITHUB_WORKSPACE}"
         ls -ltra 
-        python "${GITHUB_WORKSPACE}/.github/setparameters/readjson.py" "./componenetes/componetes_release.json"
       shell: bash
+        # python "${GITHUB_WORKSPACE}/.github/setparameters/readjson.py" "./componenetes/componetes_release.json"
 outputs:
   json_content:
     description: 'Contenido del fichero JSON'
