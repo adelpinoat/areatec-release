@@ -38,7 +38,7 @@ jobs:
           #echo "JSON content: ${{ toJson(fromJSON(steps.read-json-componenetes.outputs.json_content)) }}"
         run: | 
           echo "JSON content:"
-          cat componentes/componentes_release.json"
+          cat componentes/componentes_release.json
       - name: Set parameters deploy
         id: read-json-order
         uses: ./.github/setparameters/
@@ -48,7 +48,7 @@ jobs:
           #echo "JSON content: ${{ toJson(fromJSON(steps.read-json-order.outputs.json_content)) }}"
         run: | 
           echo "JSON content:"
-          cat componentes/order.json"
+          cat componentes/order.json
             
   # mergeamos la pull request a la rama Release  UAT para dejarla preparada para desplegar
   automerge:
