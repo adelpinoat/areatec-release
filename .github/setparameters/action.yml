@@ -9,7 +9,8 @@ runs:
   steps:
     - name: 'run python'
       run: |
-        python setparameters/readjson.py "../componenetes/componetes_release.json"
+
+        python "${GITHUB_WORKSPACE}/.github/setparameters/readjson.py" "../componenetes/componetes_release.json"
       shell: bash
 outputs:
   json_content:
