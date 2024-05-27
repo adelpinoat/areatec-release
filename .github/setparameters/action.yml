@@ -1,12 +1,18 @@
 name: "ReadComponents"
 description: "Read de los componenetes del json para su verificacion"
-runs:
-  using: "python"
-  main: "index.py"
 inputs:
   path_json:
     description: "Path del fichero JSON"
     required: true
+runs:
+  using: "composite"
+  steps:
+    - name: 'run python'
+      run: |
+        cd "${GITHUB_WORKSPACE}"
+        ls -ltra 
+      shell: bash
+        # python "${GITHUB_WORKSPACE}/.github/setparameters/readjson.py" "./componenetes/componetes_release.json"
 outputs:
   json_content:
     description: 'Contenido del fichero JSON'

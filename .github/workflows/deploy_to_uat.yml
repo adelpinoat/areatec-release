@@ -25,22 +25,30 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: "${{ github.head_ref }}"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
       - name: Set parameters deploy
-        id: read-json-compoenentes
+        id: read-json-componetes
         uses: ./.github/setparameters/
         with:
-          path_json: 'componenetes/componenetes_release.json'
+          path_json: 'componentes/componentes_release.json'
       - name: Use JSON content
+          #echo "JSON content: ${{ toJson(fromJSON(steps.read-json-componenetes.outputs.json_content)) }}"
         run: | 
-          echo "JSON content: ${{ toJson(fromJSON(steps.read-json-componenetes.outputs.json_content)) }}"
+          echo "JSON content:"
+          cat componentes/componentes_release.json
       - name: Set parameters deploy
         id: read-json-order
         uses: ./.github/setparameters/
         with:
-          path_json: 'componenetes/componenetes_order.json'
+          path_json: 'componentes/order.json'
       - name: Use JSON content
-        run: 
-          echo "JSON content: ${{ toJson(fromJSON(steps.read-json-order.outputs.json_content)) }}"
+          #echo "JSON content: ${{ toJson(fromJSON(steps.read-json-order.outputs.json_content)) }}"
+        run: | 
+          echo "JSON content:"
+          cat componentes/order.json
             
   # mergeamos la pull request a la rama Release  UAT para dejarla preparada para desplegar
   automerge:
@@ -64,9 +72,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: "${{ github.base_ref }}"
-      - name: checknexus
-        uses: ./.github/deploytoenvdest
-        with:
-          envdestino: "${{ github.base_ref }}"
-          json_componenetes: "${{ toJson(fromJSON(steps.read-json-componenetes.outputs.json_content)) }}"
-          json_order: "${{ toJson(fromJSON(steps.read-json-order.outputs.json_content)) }}"
+      - name: check to regsistry
+        run: | 
+          echo "AQUI DEBERIAMOS DE CHECKEAR EL ARTEFACTO ESTA EN EL REGISTRY Y DEPUES HACER EL DEPLOY"
+          echo "AQUI DEBERIAMOS DE CHECKEAR EL ARTEFACTO ESTA EN EL REGISTRY Y DEPUES HACER EL DEPLOY"
+          
+      ##- name: checknexus
+        ##uses: ./.github/deploytoenvdest
+        ##with:
+          ##envdestino: "${{ github.base_ref }}"
+          ##json_componenetes: "${{ toJson(fromJSON(steps.read-json-componenetes.outputs.json_content)) }}"
+          ##json_order: "${{ toJson(fromJSON(steps.read-json-order.outputs.json_content)) }}"
